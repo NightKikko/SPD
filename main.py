@@ -22,10 +22,17 @@ def display_menu():
     print(app_name_message)
     print(separator_message)
 
+import random
+
 def clean_title(title):
     cleaned_title = re.sub(r'[^a-zA-Z0-9 _]', '', title)
     cleaned_title = cleaned_title.replace(" ", "_")
-    return cleaned_title if cleaned_title else "Untitled_Playlist"
+    
+    if cleaned_title:
+        random_number = random.randint(1, 100)
+        return f"{cleaned_title}_{random_number}"
+    
+    return f"Untitled_Playlist_{random.randint(1, 100)}"
 
 def download_audio(youtube_url, output_folder):
     try:
