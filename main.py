@@ -25,7 +25,7 @@ def display_menu():
 def clean_title(title):
     cleaned_title = re.sub(r'[^a-zA-Z0-9 _]', '', title)
     cleaned_title = cleaned_title.replace(" ", "_")
-    return cleaned_title
+    return cleaned_title if cleaned_title else "Untitled_Playlist"
 
 def download_audio(youtube_url, output_folder):
     try:
